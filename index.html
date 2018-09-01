@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="canonical" href="http://localhost:2250/">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+  </head>
+  <body>
+    <!-- https://www.yankeecandle.com/browse/candles/jar-candles/_/N-9yf?view=Grid -->
+    <!-- https://www.ebay.com/b/Jars-Container-Candles/46782/bn_7855776?_trkparms=gclientid%3DiYHkeuXQnTUG39WiNJp7LzgQIMBswC0Cxxns9YFp3I6EKYtfpkuFn-SLgvW27zQS&_trksid=p2489528.m4549.l8401.c1 -->
+
+    <amp-list width="auto"
+      height="225"
+      layout="fixed-height"
+      src="/json/products.json">
+      <template type="amp-mustache">
+        <amp-carousel height="400"
+          layout="fixed-height"
+          type="carousel">
+          {{#values}}
+          <amp-img src="{{img}}"
+            layout="fixed"
+            width="225"
+            height="225"
+            alt="{{name}}"></amp-img>
+          {{/values}}
+        </amp-carousel>
+      </template>
+    </amp-list>
+
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "values": [
+        {
+          "price": "100",
+          "name": "Blue Twilight Storm",
+          "img": "https://www.yankeecandle.com/media/images/product/medium/1591464.jpg"
+        },
+        {
+          "price": "100",
+          "name": "Sugared Cinnamon Apple",
+          "img": "https://www.yankeecandle.com/media/images/product/medium/1591457.jpg"
+        },
+        {
+          "price": "100",
+          "name": "Enchanted Moon",
+          "img": "https://www.yankeecandle.com/media/images/product/medium/1591459.jpg"
+        },
+        {
+          "price": "100",
+          "name": "Witches' Brew®",
+          "img": "https://www.yankeecandle.com/media/images/product/medium/1600747.jpg"
+        },
+        {
+          "price": "100",
+          "name": "A Calm &amp; Quiet Place",
+          "img": "https://www.yankeecandle.com/media/images/product/medium/1577119.jpg"
+        },
+        {
+          "price": "100",
+          "name": "Apple Spice",
+          "img": "https://www.yankeecandle.com/media/images/product/medium/1317233.jpg"
+        }
+      ]
+    }
+  ]
+}
