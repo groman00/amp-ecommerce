@@ -11,11 +11,28 @@
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
   </head>
   <body>
     <!-- https://www.yankeecandle.com/browse/candles/jar-candles/_/N-9yf?view=Grid -->
     <!-- https://www.ebay.com/b/Jars-Container-Candles/46782/bn_7855776?_trkparms=gclientid%3DiYHkeuXQnTUG39WiNJp7LzgQIMBswC0Cxxns9YFp3I6EKYtfpkuFn-SLgvW27zQS&_trksid=p2489528.m4549.l8401.c1 -->
 
+    <!--
+      Analytics tracking for
+      - pageview
+      - all anchor clicks
+    -->
+    <amp-analytics config="/json/analytics-config.json"></amp-analytics>
+
+    <h2>Test Anchor link tracking</h2>
+    <div class="anchor-links" class="display: flex;">
+      <a href="http://www.yankeecandle.com" onclick="return false;">Yankee Candle</a>
+    </div>
+
+    <!-- Build carousel from json webservice -->
+    <h2>Carousel data from webservice</h2>
     <amp-list width="auto"
       height="225"
       layout="fixed-height"
@@ -34,6 +51,70 @@
         </amp-carousel>
       </template>
     </amp-list>
+
+    <!-- Track page element viewed -->
+    <h2>Analytics tracking element below</h2>
+    <amp-analytics>
+        <script type="application/json">
+          {
+            "requests": {
+              "event": "/ping?user=ixu2esi5&account=ampbyexample&event=${eventId}"
+            },
+            "triggers": {
+              "trackPageview": {
+                "on": "visible",
+                "request": "event",
+                "visibilitySpec": {
+                  "selector": "#cat-image-id",
+                  "visiblePercentageMin": 20,
+                  "totalTimeMin": 500,
+                  "continuousTimeMin": 200
+                },
+                "vars": {
+                  "eventId": "catview"
+                }
+              }
+            }
+          }
+        </script>
+      </amp-analytics>
+      <div style="margin-top:100%;">
+        <amp-img id="cat-image-id"
+          src="https://www.yankeecandle.com/media/images/product/medium/1577119.jpg"
+          width="300"
+          height="200"
+          attribution="visualhunt"
+          alt="a cat"
+          layout="responsive"></amp-img>
+      </div>
+
+
+      <h2>Carousel with tracking</h2>
+      <amp-list width="225"
+        height="225"
+        layout="responsive"
+        src="/json/products.json">
+        <template type="amp-mustache">
+          <amp-carousel
+            height="225"
+            width="225"
+            layout="responsive"
+            type="slides">
+            {{#values}}
+              <div class="slide"
+                data-slide-id="slide{{@index}}">
+                <amp-img
+                  layout="responsive"
+                  width="225"
+                  height="225"
+                  src="{{img}}"
+                  alt="{{name}}"></amp-img>
+              </div>
+            {{/values}}
+          </amp-carousel>
+        </template>
+      </amp-list>
+
 
   </body>
 </html>

@@ -1,0 +1,29 @@
+{
+  "requests": {
+    "event": "/ping?user=ixu2esi5&account=ampbyexample&event=${eventId}"
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "event",
+      "vars": {
+        "eventId": "pageview"
+      }
+    },
+    "ampCarouselChange": {
+      "on": "amp-carousel-change",
+      "request": "event",
+      "vars": {
+        "eventId": "carousel-change-${toSlide}"
+      }
+    },
+    "trackAnchorClicks": {
+      "on": "click",
+      "selector": "a",
+      "request": "event",
+      "vars": {
+        "eventId": "clickOnAnyAnchor"
+      }
+    }
+  }
+}
